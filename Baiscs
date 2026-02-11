@@ -1,7 +1,3 @@
-Here’s a **TL;DR (super-short summary)** of **API basics** — ideal for quick understanding or as an “endpoint” summary you can reference: ([byteplus.com][1])
-
----
-
 ### 🚀 API Basics — TL;DR
 
 **API** (Application Programming Interface):
@@ -44,4 +40,12 @@ https://api.example.com/users is the endpoint
 GET is the HTTP method (action to retrieve data)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+In One Line
+Idempotent: repeating the same request results in the same state.
+
+POST → Create a new resource (server picks ID), not idempotent.
+
+PUT → Update/replace a resource at a known URL, idempotent.
 
