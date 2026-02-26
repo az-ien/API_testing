@@ -63,3 +63,20 @@ POST → Create a new resource (server picks ID), not idempotent.
 
 PUT → Update/replace a resource at a known URL, idempotent.
 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Postman App/Web
+   │ (write tests, collections)
+   ▼
+GitHub Integration (Postman pushes JSON)
+   │
+   ▼
+GitHub Repo
+   │
+   ▼
+VS Code + Postman Extension
+   │ (edit, run, commit)
+   ▼
+GitHub Repo
+
