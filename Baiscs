@@ -2,6 +2,20 @@
 
 **API** (Application Programming Interface):
 A *set of rules* that lets different software apps communicate with each other — usually over the web using HTTP. ([Wikipedia][2])
+
+
+SOAP (VERY OLD)
+A protocol with strict standards and rules.
+Uses XML only for messages.
+Designed for formal enterprise web services.
+
+REST (LATEST)
+An architectural style (not a protocol).
+Usually uses HTTP methods (GET/POST/PUT/DELETE).
+Supports many formats like JSON, XML, plain text (JSON most common).
+
+
+
 ---
 ### 📌 Core Structure
 1. **Endpoint**
