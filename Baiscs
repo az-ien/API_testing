@@ -78,4 +78,9 @@ VS Code + Postman Extension
    │ (edit, run, commit)
    ▼
 GitHub Repo
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+2xx → request succeeded ✔️
+3xx → needs redirect ↪️
+4xx → client did something wrong ❌
+5xx → server messed up
