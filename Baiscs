@@ -14,9 +14,9 @@ An architectural style (not a protocol).
 Usually uses HTTP methods (GET/POST/PUT/DELETE).
 Supports many formats like JSON, XML, plain text (JSON most common).
 
+To verify: response body (JSON) and response code and headers and cookies and repsonse time 
 
-
----
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### 📌 Core Structure
 1. **Endpoint**
    * The specific *URL* where you send API requests to interact with a service/resource. ([byteplus.com][1])
@@ -80,7 +80,7 @@ VS Code + Postman Extension
 GitHub Repo
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-2xx → request succeeded ✔️
-3xx → needs redirect ↪️
-4xx → client did something wrong ❌
-5xx → server messed up
+200 → request succeeded ✔️
+300 → needs redirect ↪️
+400 → client did something wrong ❌
+500 → server messed up
