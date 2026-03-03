@@ -44,7 +44,7 @@ below example contains two objects which are two records in once json
 
 
 Now to access the objects: 
-Name of Array of objects[0].key
+Name of Array of objects[0].key[0]  ----   gets the first objects  array and the first value in that array
 
 
 get it from 
