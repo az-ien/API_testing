@@ -1,0 +1,8 @@
+Assertions  -- validation
+
+the libraray is pm which contains multiple functions 
+written in java script 
+
+some parameters need to be passed to the functions.. 
+
+a java script function will call pm.function (whatever that function is)
