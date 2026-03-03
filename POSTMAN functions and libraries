@@ -6,3 +6,25 @@ written in java script
 some parameters need to be passed to the functions.. 
 
 a java script function will call pm.function (whatever that function is)
+
+normal or arrow functions -- this is only javascript syntax of function declaration 
+
+chai assertion library -- JS framework for API assertion
+
+The 2 types of functions->>
+
+pm.test("Test Name", function()
+{
+// assertion
+}
+
+)
+
+pm.test("Test Name", () =>
+{
+// assertion
+}
+
+)
+
+
