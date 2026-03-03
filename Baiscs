@@ -22,7 +22,6 @@ string must be in quotes
 
 below example contains two objects which are two records in once json
 
-Name
 {
 
 "Name of Array of objects": [
@@ -42,6 +41,16 @@ Name
 ]
 
 }
+
+
+Now to access the objects: 
+Name of Array of objects[0].key
+
+
+get it from 
+https://jsonpathfinder.com/   ---- generates the path
+https://jsonpath.com/   ---- tests if its correct or not 
+
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### 📌 Core Structure
