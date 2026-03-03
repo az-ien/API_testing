@@ -16,6 +16,33 @@ Supports many formats like JSON, XML, plain text (JSON most common).
 
 To verify: response body (JSON) and response code and headers and cookies and repsonse time 
 
+like xpath derived from xml 
+so JSON derived from java script. JSON stands for Java script object notation. Object contains multiple records
+string must be in quotes
+
+below example contains two objects which are two records in once json
+
+Name
+{
+
+"Name of Array": [
+
+{
+"key": "value",
+"key": value,
+"key": [value,value]
+},
+
+{
+"key": "value",
+"key": value,
+"key": [value,value]
+}
+
+]
+
+}
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### 📌 Core Structure
 1. **Endpoint**
