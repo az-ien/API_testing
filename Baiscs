@@ -25,7 +25,7 @@ below example contains two objects which are two records in once json
 Name
 {
 
-"Name of Array": [
+"Name of Array of objects": [
 
 {
 "key": "value",
