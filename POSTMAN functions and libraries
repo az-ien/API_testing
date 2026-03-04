@@ -11,6 +11,8 @@ normal or arrow functions -- this is only javascript syntax of function declarat
 
 chai assertion library -- JS framework for API assertion
 
+------------------------------------------------------------EXAMPLES--------------------------------------------------------------------------------------------
+
 The 2 types of functions->>
 
 pm.test("Test Name", function()
@@ -26,5 +28,16 @@ pm.test("Test Name", () =>
 }
 
 )
+
+---------------------------------------------------------ASSERTIONS----------------------------------------------------------------------------------------------
+
+pm.test("Status code is 200"), () => {
+pm.response.to.have.status(200); });
+
+pm.test("Status code is 200"), () => {
+pm.expect(pm.response.code).to.be.oneof([200,201]);
+
+pm.test("Status code is 200"), () => {
+pm.response.to.have.status(created); });
 
 
