@@ -1,0 +1,92 @@
+Assertions  -- validation
+
+the libraray is pm which contains multiple functions 
+written in java script 
+
+some parameters need to be passed to the functions.. 
+
+a java script function will call pm.function (whatever that function is)
+
+normal or arrow functions -- this is only javascript syntax of function declaration 
+
+chai assertion library -- JS framework for API assertion
+
+To make an API:
+install node js --> npm (node pacakage manager)  -- > json server
+
+json schema is like the skeleton of the json data object in the file it can be generated from any online tool 
+schema stays the same even if the number of records change because structure does not change
+
+
+------------------------------------------------------------EXAMPLES--------------------------------------------------------------------------------------------
+
+The 2 types of functions->>
+
+pm.test("Test Name", function()
+{
+// assertion
+}
+
+)
+
+pm.test("Test Name", () =>
+{
+// assertion
+}
+
+)
+
+---------------------------------------------------------ASSERTIONS----------------------------------------------------------------------------------------------
+
+pm.test("Status code is 200", () => {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Status code is 200 or 201", () => {
+    pm.expect(pm.response.code).to.be.oneOf([200, 201]);
+});
+
+pm.test("Status text is Created (201)", () => {
+    pm.response.to.have.status("Created");
+});
+
+-----------------------------------------------------------------------TESTS----------------------------------------------------------------------------------------
+
+All assertions are in run in tests --- the pass or fail will be displayed in the test results
+
+
+
+-----------------------------------------------------------------------Example API requests-------------------------------------------------------------------------
+NOTE: keep the json server running so that API is available 
+
+Endpoint:
+
+http://localhost:3000/students
+
+requests:
+
+get: http://localhost:3000/students/1
+
+post: http://localhost:3000/students
+{
+		"id":4,
+		"name":"Jack",
+		"location":"uk",
+		"phone":"3344553344",
+		"courses":["c","c++"] 
+		
+	}
+	
+	
+put: http://localhost:3000/students/4
+{
+		"id":4,
+		"name":"Jack",
+		"location":"germany",
+		"phone":"3344553344",
+		"courses":["c","c++"] 
+		
+	}
+	
+
+delete: http://localhost:3000/students/4
