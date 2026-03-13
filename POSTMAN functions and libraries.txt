@@ -12,6 +12,7 @@ normal or arrow functions -- this is only javascript syntax of function declarat
 chai assertion library -- JS framework for API assertion
 
 To make an API:
+ceate a text file with json extension add the json object and then run from json server 
 install node js --> npm (node pacakage manager)  -- > json server
 
 json schema is like the skeleton of the json data object in the file it can be generated from any online tool 
