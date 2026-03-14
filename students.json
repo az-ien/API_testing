@@ -29,6 +29,16 @@
         "c#",
         "restAPI"
       ]
+    },
+    {
+      "id": "4",
+      "name": "Jack",
+      "location": "uk",
+      "phone": "3344553344",
+      "courses": [
+        "c",
+        "c++"
+      ]
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -14,10 +14,40 @@ chai assertion library -- JS framework for API assertion
 To make an API:
 ceate a text file with json extension add the json object and then run from json server 
 install node js --> npm (node pacakage manager)  -- > json server
+run cmd in the folder where the api is and then run the command: json-server students.json
 
 json schema is like the skeleton of the json data object in the file it can be generated from any online tool 
 schema stays the same even if the number of records change because structure does not change
 
+pre-request scripts run before -> request -> post-request scripts run after
+
+
+
+collection level scrips 
+folder level scripts 
+request level scripts
+
+why needed:
+1.when data is needed to be generated dynamically and before post request is made
+2. when request requires a parameter/variables before the request is made 
+
+
+variables: some common thing in all requests so create one variable and pass that to all requests
+scope of variables accessibility:
+1.global: access through out the postman workspace : {{url_global}} 
+2.collection: access only in collection: {{url_collection}} 
+3.environment: {{url_qa_env}} : Postman Environments let you define and switch sets of reusable variables so the same requests can run in different setups without editing each request. 
+(environemnt can only be used if the before running the request switch to that specific environemnt from right side icon)
+
+REQUEST LEVEL VARIABLES(define in pre-request script):
+4.local: only as pre request of that specificrequest
+
+5.data: data taken from external files such as csv and txt
+
+
+set -- variable
+get -- variable
+unset -- delete variable 
 
 ------------------------------------------------------------EXAMPLES--------------------------------------------------------------------------------------------
 
