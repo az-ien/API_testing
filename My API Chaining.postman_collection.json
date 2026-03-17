@@ -1,0 +1,225 @@
+{
+  "info": {
+    "_postman_id": "4bb4eccf-a52a-49ed-b298-5cb8c3eb25c9",
+    "name": "My API Chaining",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "31535884"
+  },
+  "item": [
+    {
+      "name": "create new student",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// get the body repsonse as a json object\r",
+              "var jsonData = JSON.parse(pm.response.text());\r",
+              "\r",
+              "// get the id and store in a variable on the run time \r",
+              "pm.environment.set(\"idvar\",jsonData.id);\r",
+              "\r",
+              "//print the variable \r",
+              "console.log(pm.environment.get(\"idvar\"));\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\"id\": \"4\",\r\n\"name\":\"Jack\",\r\n\"location\":\"uk\",\r\n\"phone\":\"3344553344\",\r\n\"courses\":[\"c\",\"c++\"] \r\n\t\t\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/students",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "students"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get specific student",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "// get is the main request becuase body needs to be verified but for other requests there is not so many cases",
+              "",
+              "pm.test(\"Status code is 200 or 201\", () => {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              "",
+              "pm.test(\"Status code is 200 or 201\", () => {",
+              "    pm.expect(pm.response.code).to.be.oneOf(201);",
+              "});",
+              "",
+              "",
+              "pm.test(\"content-type header is present\", () => {",
+              "    pm.response.to.have.header(\"Content-Type\");",
+              "});",
+              "",
+              "",
+              "pm.test(\"content-type is application/json\", () => {",
+              "    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json');",
+              "});",
+              "",
+              "pm.test(\"Response time is less thatn 200ms\", () => {",
+              "    pm.expect(pm.response.responseTime).to.be.below(200);",
+              "    });",
+              "",
+              "pm.test(\"test data type of the reponse\", () => {",
+              "    pm.expect(pm.response.json()).to.be.an('object');",
+              "    });",
+              "",
+              "",
+              "pm.test(\"test data type of the reponse\", () => {",
+              "    pm.expect(pm.response.json()).to.be.an('object');",
+              "    });",
+              "",
+              "const jsonData = pm.response.json();",
+              "pm.test(\"test if the response has the correct values and types\", () => {",
+              "    // Type checks (fixed chai syntax)",
+              "    pm.expect(jsonData).to.be.an('object');",
+              "",
+              "    pm.expect(jsonData).to.have.property('id');",
+              "    pm.expect(jsonData.id).to.be.a('string');",
+              "    pm.expect(jsonData.id).to.equal('4'); // fixed chai syntax",
+              "",
+              "    pm.expect(jsonData).to.have.property('name');",
+              "    pm.expect(jsonData.name).to.be.a('string');",
+              "    pm.expect(jsonData.name).to.equal('Jack');",
+              "    ",
+              "    pm.expect(jsonData).to.have.property('location');",
+              "    pm.expect(jsonData.location).to.be.a('string');",
+              "    pm.expect(jsonData.location).to.equal('uk'); // fixed chai syntax",
+              "",
+              "    pm.expect(jsonData).to.have.property('phone');",
+              "    pm.expect(jsonData.phone).to.be.a('string');",
+              "    pm.expect(jsonData.phone).to.equal('3344553344'); // fixed chai syntax",
+              "    ",
+              "    pm.expect(jsonData).to.have.property('courses');",
+              "    pm.expect(jsonData.courses).to.be.an('array');",
+              "    pm.expect(jsonData.courses).to.eql(['c', 'c++']);",
+              "    pm.expect(jsonData.courses).to.include('c');",
+              "    pm.expect(jsonData.courses[1]).to.include('c++');",
+              "    jsonData.courses.forEach((c) => pm.expect(c).to.be.a('string'));",
+              "",
+              "",
+              "",
+              "    // fun comment ",
+              "",
+              "});",
+              "",
+              "",
+              "",
+              "// Replaced broken schema validation with working JSON Schema (AJV) validation",
+              "pm.test(\"Schema is valid json\", () => {",
+              "    const schema = {",
+              "        type: \"object\",",
+              "        required: [\"id\", \"name\", \"location\", \"phone\", \"courses\"],",
+              "        additionalProperties: false,",
+              "        properties: {",
+              "            id: { type: \"string\" },",
+              "            name: { type: \"string\" },",
+              "            location: { type: \"string\" },",
+              "            phone: { type: \"string\" },",
+              "            courses: {",
+              "                type: \"array\",         // change the type and assert fails ",
+              "                items: { type: \"string\" }",
+              "            }",
+              "        }",
+              "    };",
+              "",
+              "    pm.response.to.have.jsonSchema(schema);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "// scripts executed before the request is sent\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/students/{{idvar}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "students",
+            "{{idvar}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete the record",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/students/{{idvar}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "students",
+            "{{idvar}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
