@@ -1,0 +1,145 @@
+{
+  "info": {
+    "_postman_id": "74b79fd0-f034-4bf9-b48c-b47f0651bf4f",
+    "name": "My API Chaining variables",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "31535884"
+  },
+  "item": [
+    {
+      "name": "create new student",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "",
+              "pm.test(\"Save created student id and name to environment\", function () {",
+              "  const jsonData = pm.response.json();",
+              "",
+              "  pm.environment.set(\"idvar\", String(jsonData.id));",
+              "  pm.environment.set(\"name_env\", String(jsonData.name));",
+              "});",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"{{$randomFirstName}}\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/students",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "students"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get specific student",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "",
+              "",
+              "pm.test(\"Student name and id match environment variables\", function () {",
+              "  const jsonData = pm.response.json();",
+              "  const expectedName = pm.environment.get(\"name_env\");",
+              "  const expectedId = pm.environment.get(\"idvar\");",
+              "",
+              "  pm.expect(String(jsonData.name)).to.eql(String(expectedName));",
+              "  pm.expect(String(jsonData.id)).to.eql(String(expectedId));",
+              "});",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "// scripts executed before the request is sent\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/students/{{idvar}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "students",
+            "{{idvar}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete the record",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/students/{{idvar}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "students",
+            "{{idvar}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
