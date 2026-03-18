@@ -49,6 +49,21 @@ set -- variable
 get -- variable
 unset -- delete variable 
 
+
+--------------------------------------------------To run collection using json file data-----------------------------------------------------------------------
+
+1.in the requests ensure that there are variables with the same name as the column headers in the json file 
+2.chain the requests together and set the assertions on the arriving or pass what ever variables you need
+3.in the run collection option on the collection give the number of iterations (if there are 3 rows of data in json/csv file then the iteration should be 3)
+4.below that select the test data file 
+5.set the delay between the iterations
+6.run the collection and view the iteration results 
+
+
+NOTE: the JSON file data should be in the database especially the IDs
+
+
+
 ------------------------------------------------------------EXAMPLES--------------------------------------------------------------------------------------------
 
 The 2 types of functions->>
