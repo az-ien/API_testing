@@ -72,6 +72,21 @@ NOTE: the JSON file data should be in the database especially the IDs
 4.in the value drag and drop the files and run the request 
 5.and download the files from wherever
 
+---------------------------------------------------------chaining exmaple---------------------------------------------------------------------------------------
+
+In tools like Postman, you can save the id from the POST step into an environment variable:
+
+// In POST request Tests tab
+pm.environment.set("itemId", pm.response.json().id);
+
+Then use it in the GET and DELETE URLs:
+
+GET https://example.com/api/items/{{itemId}}
+DELETE https://example.com/api/items/{{itemId}}
+
+This automates chaining across requests.
+
+
 ------------------------------------------------------------EXAMPLES--------------------------------------------------------------------------------------------
 
 The 2 types of functions->>
