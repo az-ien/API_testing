@@ -64,6 +64,14 @@ NOTE: the JSON file data should be in the database especially the IDs
 
 
 
+-----------------------------------------------------TO UPLOAD FILES--------------------------------------------------------------------------------------------
+
+1.check what request is there that will upload the file 
+2.in the body->form-data
+3.in key type files for multiple files and file for single file 
+4.in the value drag and drop the files and run the request 
+5.and download the files from wherever
+
 ------------------------------------------------------------EXAMPLES--------------------------------------------------------------------------------------------
 
 The 2 types of functions->>
