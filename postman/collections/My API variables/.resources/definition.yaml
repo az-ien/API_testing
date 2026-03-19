@@ -1,0 +1,5 @@
+$kind: collection
+variables:
+  url_collection: ""
+  local_id: ""
+  collection_local_id: ""

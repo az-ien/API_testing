@@ -1,0 +1,11 @@
+$kind: http-request
+url: http://localhost:3000/students/1
+method: GET
+scripts:
+  - type: afterResponse
+    code: console.log("post request test script at request level")
+    language: text/javascript
+  - type: beforeRequest
+    code: console.log("pre request script at request level")
+    language: text/javascript
+order: 1000

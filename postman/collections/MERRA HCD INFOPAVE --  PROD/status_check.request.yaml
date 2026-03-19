@@ -1,0 +1,4 @@
+$kind: http-request
+url: https://api.infopave.fhwa.dot.gov/Authorize/getAPIStatus
+method: GET
+order: 1000

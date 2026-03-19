@@ -1,0 +1,9 @@
+name: qa
+values:
+  - key: idvar
+    value: ""
+    enabled: true
+  - key: name_env
+    value: ""
+    enabled: true
+color: 180

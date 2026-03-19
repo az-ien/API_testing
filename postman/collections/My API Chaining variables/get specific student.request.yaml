@@ -1,0 +1,24 @@
+$kind: http-request
+url: http://localhost:3000/students/{{idvar}}
+method: GET
+body:
+  type: json
+  content: ""
+scripts:
+  - type: afterResponse
+    code: |
+      
+
+      pm.test("Student name and id match environment variables", function () {
+        const jsonData = pm.response.json();
+        const expectedName = pm.environment.get("name_env");
+        const expectedId = pm.environment.get("idvar");
+
+        pm.expect(String(jsonData.name)).to.eql(String(expectedName));
+        pm.expect(String(jsonData.id)).to.eql(String(expectedId));
+      });
+    language: text/javascript
+  - type: beforeRequest
+    code: "// scripts executed before the request is sent\r\n"
+    language: text/javascript
+order: 2000

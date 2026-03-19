@@ -1,0 +1,35 @@
+$kind: http-request
+url: "{{url_qa_env}}"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \"id\": \"4\",\r
+
+    \"name\":\"Jack\",\r
+
+    \"location\":\"uk\",\r
+
+    \"phone\":\"3344553344\",\r
+
+    \"courses\":[\"c\",\"c++\"] \r
+
+    \t\t\r
+
+    }"
+scripts:
+  - type: beforeRequest
+    code: "//environments variable \r
+
+      //NOTE: environment has to be created and selected before running this
+      script\r
+
+      pm.environment.set(\"url_qa_env\",\"http://localhost:3000/students\");"
+    language: text/javascript
+  - type: afterResponse
+    code: "console.log(pm.environment.get(\"url_qa_env\"));\r
+
+      pm.environment.unset(\"url_qa_env\");"
+    language: text/javascript
+order: 2000

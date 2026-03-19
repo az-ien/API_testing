@@ -1,0 +1,18 @@
+$kind: http-request
+url: https://api.infopave.fhwa.dot.gov/ClimateData/getMERRAHCDData
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"MERRA_IDS\": [141833, 141834, 141835, 142409, 142410, 142411, 142985,
+    142986, 142987],\r
+
+    \    \"Unit_System\": \"US\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{Token}}"
+order: 4000

@@ -1,0 +1,8 @@
+$kind: collection
+scripts:
+  - type: http:beforeRequest
+    code: console.log("pre request script at collection level")
+    language: text/javascript
+  - type: http:afterResponse
+    code: console.log("post test request script at collection level")
+    language: text/javascript

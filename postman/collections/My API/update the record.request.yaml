@@ -1,0 +1,21 @@
+$kind: http-request
+url: http://localhost:3000/students/430b
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \t\t\"id\":4,\r
+
+    \t\t\"name\":\"Jack\",\r
+
+    \t\t\"location\":\"germany\",\r
+
+    \t\t\"phone\":\"3344553344\",\r
+
+    \t\t\"courses\":[\"c\",\"c++\"] \r
+
+    \t\t\r
+
+    \t}"
+order: 3000

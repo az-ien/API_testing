@@ -1,0 +1,18 @@
+$kind: http-request
+url: http://localhost:3000/students
+method: POST
+body:
+  type: json
+  content: '{"name": "{{$randomFirstName}}"}'
+scripts:
+  - type: afterResponse
+    code: |
+      
+      pm.test("Save created student id and name to environment", function () {
+        const jsonData = pm.response.json();
+
+        pm.environment.set("idvar", String(jsonData.id));
+        pm.environment.set("name_env", String(jsonData.name));
+      });
+    language: text/javascript
+order: 1000

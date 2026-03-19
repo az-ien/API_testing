@@ -1,0 +1,20 @@
+$kind: http-request
+url: "{{url_global}}/{{collection_local_id}}"
+method: DELETE
+scripts:
+  - type: beforeRequest
+    code: "//global variable\r
+
+      pm.globals.set(\"url_global\", \"http://localhost:3000/students\")\r
+
+      \r
+
+      \r
+
+      //print then remove collection variable\r
+
+      console.log(pm.collectionVariables.get(\"collection_local_id\"));\r
+
+      pm.collectionVariables.set(\"collection_local_id\",\"4\")"
+    language: text/javascript
+order: 4000

@@ -1,0 +1,22 @@
+# Use this workspace to collaborate
+workspace:
+  id: ""
+
+localResources:
+  collections:
+    - ..\My API Chaining variables.postman_collection.json
+    - ..\My API Chaining.postman_collection.json
+    - ..\My API variables.postman_collection.json
+    - ..\My API workflow.postman_collection.json
+    - ..\My API.postman_collection.json
+
+# Each entry here maps a local resource to one or more corresponding objects in Postman Cloud
+cloudResources:
+  collections:
+    ..\postman\collections\My API: 31535884-11d63598-31bb-42f6-8f1a-96284f00e8f5
+    ..\postman\collections\My API Chaining variables: 31535884-b83b4c5a-bb4e-425b-b2e2-5f97b08ba320
+    ..\postman\collections\My API workflow: 31535884-bffc2544-34a7-4796-abeb-c3d6b82228ed
+    ..\postman\collections\MERRA HCD INFOPAVE --  PROD: 31535884-df452a5f-7257-4c99-adfb-37505961c84b
+    ..\postman\collections\My API variables: 31535884-ef380cb2-787e-4fef-874e-1b34eff7d598
+  environments:
+    ..\postman\environments\qa.environment.yaml: 31535884-24f9d472-5885-4d66-9715-14bb26fcbae4

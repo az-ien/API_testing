@@ -1,0 +1,136 @@
+$kind: http-request
+url: "{{url_local}}/{{global_id}}"
+method: GET
+body:
+  type: json
+  content: ""
+scripts:
+  - type: afterResponse
+    code: >
+      // get is the main request becuase body needs to be verified but for other
+      requests there is not so many cases
+
+
+      pm.test("Status code is 200 or 201", () => {
+          pm.expect(pm.response.code).to.be.oneOf([200, 201]);
+      });
+
+
+      pm.test("Status code is 200 or 201", () => {
+          pm.expect(pm.response.code).to.be.oneOf(201);
+      });
+
+
+
+      pm.test("content-type header is present", () => {
+          pm.response.to.have.header("Content-Type");
+      });
+
+
+
+      pm.test("content-type is application/json", () => {
+          pm.expect(pm.response.headers.get("Content-Type")).to.eql('application/json');
+      });
+
+
+      pm.test("Response time is less thatn 200ms", () => {
+          pm.expect(pm.response.responseTime).to.be.below(200);
+          });
+
+      pm.test("test data type of the reponse", () => {
+          pm.expect(pm.response.json()).to.be.an('object');
+          });
+
+
+      pm.test("test data type of the reponse", () => {
+          pm.expect(pm.response.json()).to.be.an('object');
+          });
+
+      const jsonData = pm.response.json();
+
+      pm.test("test if the response has the correct values and types", () => {
+          // Type checks (fixed chai syntax)
+          pm.expect(jsonData).to.be.an('object');
+
+          pm.expect(jsonData).to.have.property('id');
+          pm.expect(jsonData.id).to.be.a('string');
+          pm.expect(jsonData.id).to.equal('1'); // fixed chai syntax
+
+          pm.expect(jsonData).to.have.property('name');
+          pm.expect(jsonData.name).to.be.a('string');
+          pm.expect(jsonData.name).to.equal('john');
+          
+          pm.expect(jsonData).to.have.property('location');
+          pm.expect(jsonData.location).to.be.a('string');
+          pm.expect(jsonData.location).to.equal('uae'); // fixed chai syntax
+
+          pm.expect(jsonData).to.have.property('phone');
+          pm.expect(jsonData.phone).to.be.a('string');
+          pm.expect(jsonData.phone).to.equal('1234567890'); // fixed chai syntax
+          
+          pm.expect(jsonData).to.have.property('courses');
+          pm.expect(jsonData.courses).to.be.an('array');
+          pm.expect(jsonData.courses).to.eql(['Java', 'Selenium']);
+          pm.expect(jsonData.courses).to.include('Java');
+          pm.expect(jsonData.courses[1]).to.include('Selenium');
+          jsonData.courses.forEach((c) => pm.expect(c).to.be.a('string'));
+
+
+
+          // fun comment 
+
+      });
+
+
+
+
+      // Replaced broken schema validation with working JSON Schema (AJV)
+      validation
+
+      pm.test("Schema is valid json", () => {
+          const schema = {
+              type: "object",
+              required: ["id", "name", "location", "phone", "courses"],
+              additionalProperties: false,
+              properties: {
+                  id: { type: "string" },
+                  name: { type: "string" },
+                  location: { type: "string" },
+                  phone: { type: "string" },
+                  courses: {
+                      type: "array",         // change the type and assert fails 
+                      items: { type: "string" }
+                  }
+              }
+          };
+
+          pm.response.to.have.jsonSchema(schema);
+      });
+
+
+      //print and then remove global variable after execution
+
+      console.log(pm.globals.get("global_id"));
+
+      pm.globals.unset("global_id");
+    language: text/javascript
+  - type: beforeRequest
+    code: "// scripts executed before the request is sent\r
+
+      //local variable \r
+
+      pm.variables.set(\"url_local\", \"http://localhost:3000/students\");\r
+
+      \r
+
+      //global variable \r
+
+      pm.globals.set(\"global_id\",\"1\")\r
+
+      \r
+
+      \r
+
+      \r\n"
+    language: text/javascript
+order: 1000

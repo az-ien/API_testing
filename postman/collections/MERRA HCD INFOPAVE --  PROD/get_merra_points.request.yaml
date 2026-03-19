@@ -1,0 +1,17 @@
+$kind: http-request
+url: https://api.infopave.fhwa.dot.gov/ClimateData/getMERRAClimaticDataPoints
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"Latitude\":37.090240,\r
+
+    \  \"Longitude\":-94.631164\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{Token}}"
+order: 3000
