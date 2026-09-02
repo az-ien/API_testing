@@ -1,7 +1,0 @@
-$kind: http-request
-url: https://api.infopave.fhwa.dot.gov/Authorize/getAuthenticationToken?username=iengineering&password=PU62g4%2358Li6
-method: POST
-queryParams:
-  username: iengineering
-  password: PU62g4#58Li6
-order: 2000
